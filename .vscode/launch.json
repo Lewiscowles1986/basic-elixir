@@ -6,7 +6,11 @@
       "name": "mix phx.server",
       "request": "launch",
       "task": "phx.server",
-      "projectDir": "${workspaceRoot}"
+      "projectDir": "${workspaceRoot}",
+      "env": {
+        "PORT": "4001"
+      },
+      "exitAfterTaskReturns": false
     },
     {
       "type": "mix_task",

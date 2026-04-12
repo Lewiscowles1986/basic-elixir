@@ -8,7 +8,7 @@ A basic Elixir web application bootstrapped with Phoenix, featuring a Docker-bas
 
 - [Docker](https://www.docker.com/get-started)
 - [Docker Compose](https://docs.docker.com/compose/install/)
-- [VS Code](https://code.visualstudio.com/) (recommended) with [ElixirLS](https://marketplace.visualstudio.com/items?itemName=elixir-lsp.elixir-ls) extension.
+- [VS Code](https://code.visualstudio.com/) (recommended) with [ElixirLS](https://marketplace.visualstudio.com/items?itemName=JakeBecker.elixir-ls) extension.
 
 ### Setup
 
@@ -43,12 +43,21 @@ For continuous testing, you can use `mix test.watch` (if configured) or simply r
 
 This project includes VS Code configuration in `.vscode/`.
 
-### Interactive Debugging
-*Note: Interactive debugging via VS Code for Dockerized Elixir can be complex without VS Code Dev Containers. The provided `launch.json` is a starting point.*
+### Recommended Extensions
+When you open this project in VS Code, you should be prompted to install:
+- **ElixirLS**: For language support and debugging.
+- **Dev Containers**: To run VS Code *inside* your Docker container.
 
-- Use the **Ecto Setup (Docker)** task to prepare your database.
-- Use **Run Tests (Docker)** to verify your logic.
-- For true interactive debugging, consider using [VS Code Dev Containers](https://code.visualstudio.com/docs/remote/containers).
+### Interactive Debugging
+Since Elixir is not installed on your host machine, the most reliable way to debug is via **Dev Containers**:
+1. Install the **Dev Containers** extension.
+2. Click the green icon in the bottom-left corner of VS Code.
+3. Select **"Reopen in Container"**.
+4. Once inside, you can use the **Run and Debug** sidebar with the provided configurations.
+
+Alternatively, use the **Tasks** (`Cmd+Shift+P` -> `Tasks: Run Task`):
+- **Ecto Setup (Docker)**: Prepare your database.
+- **Run Tests (Docker)**: Execute the test suite.
 
 ## Community Conventions
 
