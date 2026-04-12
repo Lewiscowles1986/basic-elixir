@@ -1,0 +1,29 @@
+FROM elixir:latest
+
+# Install dependencies for Phoenix
+RUN apt-get update && \
+    apt-get install -y build-essential inotify-tools git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Hex and Rebar
+RUN mix local.hex --force && \
+    mix local.rebar --force
+
+# Set working directory
+WORKDIR /app
+
+# Copy dependency files
+COPY mix.exs mix.lock ./
+RUN mix deps.get
+RUN mix deps.compile
+
+# The rest of the files will be mounted as a volume in docker-compose.yml
+# but we can copy them for building the image if needed.
+COPY . .
+
+# Expose Phoenix port
+EXPOSE 4000
+
+# Default command
+CMD ["mix", "phx.server"]
