@@ -39,6 +39,10 @@ docker-compose run --rm web mix test
 
 For continuous testing, you can use `mix test.watch` (if configured) or simply run the above command as you develop.
 
+## CI/CD
+
+We use GitHub Actions for our continuous integration pipeline. For details on our approach, goals, and how to run CI checks locally using `act`, see our [GitHub Actions Documentation](docs/github-actions/README.md).
+
 ## Debugging
 
 This project includes VS Code configuration in `.vscode/`.
