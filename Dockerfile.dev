@@ -13,8 +13,13 @@ RUN mix local.hex --force && \
 # Set working directory
 WORKDIR /app
 
+# Move deps and _build outside of /app to prevent host pollution via volume mount
+ENV MIX_DEPS_PATH=/deps
+ENV MIX_BUILD_PATH=/_build
+
 # Copy dependency files
 COPY mix.exs mix.lock ./
+COPY config config
 RUN mix deps.get
 RUN mix deps.compile
 

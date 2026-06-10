@@ -1,0 +1,14 @@
+# Docker ignore file
+.git
+.github
+.vscode
+.devcontainer
+_build
+deps
+priv/static/assets
+.elixir_ls
+.env
+.env.test
+docker-compose.yml
+Dockerfile.dev
+README.md
